@@ -10,7 +10,6 @@ class Work < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=v#{version}"), "./cmd/work"
-    (share/"fish/vendor_conf.d/work.fish").write Utils.safe_popen_read(bin/"work", "init", "fish")
   end
 
   test do
